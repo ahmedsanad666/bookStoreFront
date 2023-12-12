@@ -1,0 +1,2 @@
+D:\work\BookStore\vueapp\obj\Debug\vueapp.esproj.CoreCompileInputs.cache
+D:\work\arid\BookStore\vueapp\obj\Debug\vueapp.esproj.CoreCompileInputs.cache
