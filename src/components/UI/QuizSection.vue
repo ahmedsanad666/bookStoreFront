@@ -13,13 +13,8 @@
         </div>
         <div>
           <ul class="space-y-4">
-            <li
-              class="bg-mianColor rounded-lg shadow-md py-2 px-10 tracking-wide hover:bg-slate-400"
-              v-for="(el, key) in currentQ.choices"
-              :key="key"
-              ref="myli"
-              @click="checkAns(key)"
-            >
+            <li class="bg-mianColor rounded-lg shadow-md py-2 px-10 tracking-wide hover:bg-slate-400"
+              v-for="(el, key) in currentQ.choices" :key="key" ref="myli" @click="checkAns(key)">
               <span class="flex justify-center items-center">{{ key }}</span>
 
               {{ el }}
@@ -41,9 +36,9 @@
         {{ message }}
       </h1>
       <div class="w-full py-2 mt-3 text-center ">
-        <router-link to="/grants" class=" border rounded-md   hover:text-slate-900 bg-slate-200 py-2 px-4 text-xl font-bold m-auto"
-          >View Grant</router-link
-        >
+        <router-link to="/grants"
+          class=" border rounded-md   hover:text-slate-900 bg-slate-200 py-2 px-4 text-xl font-bold m-auto">View
+          Grant</router-link>
       </div>
     </div>
     <div v-else-if="currentMood === 'noQuiz'">
@@ -182,11 +177,11 @@ export default {
           // add user grant
           const userId = this.$store.getters["auth/userId"];
           const grant = {
-            apiUserId: userId,
+            apiUserId: userId, //not needed, the backend will get it from the sent token
             grantCode: Date.now().toString(),
-            validTillDate: this.daysToread,
-            bookTitle: this.title,
-            isbn: this.isbn,
+            validTillDate: this.daysToread, //not needed
+            bookTitle: this.title, //not needed
+            isbn: this.isbn, //not needed
             bookId: this.bookId,
           };
 
@@ -215,9 +210,11 @@ li.checked {
 li.right {
   background: green;
 }
+
 li.wrong {
   background: red;
 }
+
 li {
   cursor: pointer;
   transition: 0.3s linear;
@@ -236,6 +233,7 @@ li {
     border-bottom-left-radius: 7px;
   }
 }
+
 section {
   height: 80vh;
   position: absolute;
@@ -244,6 +242,7 @@ section {
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
 .overlay {
   position: absolute;
   width: 100%;
